@@ -1,8 +1,10 @@
 
+import Dashboard from "./interface/Dashboard/Dashboard"
+
 function App() {
   return (
     <>
-      <h1 className=''>Hello world</h1>
+      <Dashboard/>
       
     </>
   )
