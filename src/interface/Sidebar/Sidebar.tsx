@@ -63,15 +63,17 @@ function Sidebar({ activeNav, setActiveNav }: SidebarProps) {
                     width: DentalUI.DRAWER_WIDTH,
                     boxSizing: "border-box",
                     border: "none",
-                    borderRight: "1px solid #F3F4F6",
+                    borderRight: "1px solid",
+                    borderColor: "divider",
                     bgcolor: "background.paper",
                 },
             }}
         >
             <Stack direction="row" alignItems="center" gap={1.5} px={2.5} py={2.5}
-                sx={{ borderBottom: "1px solid #F3F4F6" }}>
+                sx={{ borderBottom: "1px solid", borderColor: "divider" }}>
                 <Box sx={{
-                    width: 34, height: 34, borderRadius: "9px", bgcolor: "primary.main",
+                    width: 34, height: 34, borderRadius: "9px",
+                    bgcolor: "primary.main",
                     display: "flex", alignItems: "center", justifyContent: "center"
                 }}>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
@@ -80,10 +82,10 @@ function Sidebar({ activeNav, setActiveNav }: SidebarProps) {
                 </Box>
                 <Box>
                     <Typography sx={{ fontSize: "0.9rem", fontWeight: 600, lineHeight: 1.1, color: "text.primary" }}>
-                        DentaFlow
+                        Doctor Jones
                     </Typography>
                     <Typography sx={{ fontSize: "0.65rem", color: "text.secondary" }}>
-                        Management System
+                        Dental Management System
                     </Typography>
                 </Box>
             </Stack>
@@ -103,8 +105,21 @@ function Sidebar({ activeNav, setActiveNav }: SidebarProps) {
                                     key={key}
                                     selected={activeNav === label}
                                     onClick={() => setActiveNav(label)}
+                                    sx={{
+                                        borderRadius: '8px',
+                                        mb: 0.5,
+                                        "&.Mui-selected": {
+                                            bgcolor: (theme) => alpha(theme.palette.primary.main, 0.08),
+                                            "&:hover": {
+                                                bgcolor: (theme) => alpha(theme.palette.primary.main, 0.12),
+                                            }
+                                        }
+                                    }}
                                 >
-                                    <ListItemIcon sx={{ minWidth: 32, color: activeNav === label ? "primary.dark" : "text.secondary" }}>
+                                    <ListItemIcon sx={{
+                                        minWidth: 32,
+                                        color: activeNav === label ? "primary.main" : "text.secondary"
+                                    }}>
                                         {icon}
                                     </ListItemIcon>
                                     <ListItemText
@@ -112,16 +127,17 @@ function Sidebar({ activeNav, setActiveNav }: SidebarProps) {
                                         primaryTypographyProps={{
                                             fontSize: "0.825rem",
                                             fontWeight: activeNav === label ? 600 : 400,
+                                            color: activeNav === label ? "primary.main" : "text.primary"
                                         }}
                                     />
                                     {badge !== undefined && (
                                         <Chip label={badge} size="small"
                                             sx={{
-                                                height: 18, 
-                                                fontSize: "0.6rem", 
+                                                height: 18,
+                                                fontSize: "0.6rem",
                                                 fontWeight: 600,
-                                                bgcolor: "primary.main", 
-                                                color: "white", 
+                                                bgcolor: "primary.main",
+                                                color: "white",
                                                 ml: 0.5
                                             }} />
                                     )}
@@ -132,12 +148,12 @@ function Sidebar({ activeNav, setActiveNav }: SidebarProps) {
                 ))}
             </Box>
 
-
-            <Box sx={{ borderTop: "1px solid #F3F4F6", px: 2, py: 1.75 }}>
+            <Box sx={{ borderTop: "1px solid", borderColor: "divider", px: 2, py: 1.75 }}>
                 <Stack direction="row" alignItems="center" gap={1.5}>
                     <Avatar sx={{
                         width: 32, height: 32, fontSize: "0.7rem", fontWeight: 600,
-                        bgcolor: alpha("#0F9B75", 0.12), color: "primary.dark"
+                        bgcolor: (theme) => alpha(theme.palette.primary.main, 0.12),
+                        color: "primary.main"
                     }}>
                         DR
                     </Avatar>
