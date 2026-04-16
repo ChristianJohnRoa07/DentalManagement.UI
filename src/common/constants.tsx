@@ -10,15 +10,6 @@ export const TREATMENT_CHIP: Record<TreatmentType, { sx: object }> = {
     Extraction: { sx: { bgcolor: "#FEE2E2", color: "#7F1D1D" } },
 };
 
-export const AVATAR_COLOR: Record<TreatmentType, object> = {
-    Cleaning: { bgcolor: "#DCFCE7", color: "#166534" },
-    "X-Ray": { bgcolor: "#DBEAFE", color: "#1E40AF" },
-    Filling: { bgcolor: "#FEF3C7", color: "#92400E" },
-    Consult: { bgcolor: "#EDE9FE", color: "#4C1D95" },
-    Ortho: { bgcolor: "#FCE7F3", color: "#831843" },
-    Extraction: { bgcolor: "#FEE2E2", color: "#7F1D1D" },
-};
-
 export const PATIENT_AVATAR = [
     { bgcolor: "#E0F4EE", color: "#0A7558" },
     { bgcolor: "#FEF3C7", color: "#92400E" },
