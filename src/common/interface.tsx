@@ -1,5 +1,20 @@
 import { type PatientStatus, type TreatmentType } from "../common/types"
 
+
+declare module '@mui/material/styles' {
+  interface Palette {
+    treatmentTypes: Record<TreatmentType, TreatmentColors>;
+  }
+  interface PaletteOptions {
+    treatmentTypes?: Record<TreatmentType, TreatmentColors>;
+  }
+}
+
+export interface TreatmentColors {
+  bgcolor: string;
+  textColor: string;
+}
+
 export interface Appointment {
     time: string;
     name: string;

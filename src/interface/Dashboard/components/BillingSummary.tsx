@@ -6,10 +6,10 @@ import {
     Typography,
     Paper
 } from "@mui/material";
-import { type BillingSummaryProps } from "../../common/interface"
+import { type BillingSummaryProps } from "../../../common/interface"
 import {
     BILLING_COLOR,
-} from "../../common/constants";
+} from "../../../common/constants";
 
 function BillingSummary({ billingSummaryData }: BillingSummaryProps) {
     return (

@@ -44,11 +44,12 @@ import {
 import { type Appointment, type Patient, type BillingRow, type MetricCardProps } from "../../common/interface";
 
 import Sidebar from "../Sidebar/Sidebar";
-import MetricCard from "./MetricCard";
-import TopBar from "./TopBar";
-import Appointments from "./Appointments";
-import BillingSummary from "./BillingSummary";
-import RecentPatients from "./RecentPatients";
+import MetricCard from "./components/MetricCard";
+import TopBar from "./components/TopBar";
+import Appointments from "./components/Appointments";
+import ReservePatients from "./components/ReservedPatients";
+import BillingSummary from "./components/BillingSummary";
+import RecentPatients from "./components/RecentPatients";
 
 
 function WeeklyBarChart() {
@@ -108,24 +109,24 @@ const METRIC_DATA: MetricCardProps[] = [
         iconBg: alpha("#0F9B75", 0.1),
         icon: <ReceiptLongRoundedIcon sx={{ fontSize: 16, color: "primary.main" }} />
     },
-    {
-        key: "pendingInvoices",
-        label: "Pending Invoices",
-        value: "7",
-        delta: "2 overdue",
-        up: false,
-        iconBg: alpha("#D97706", 0.1),
-        icon: <AssignmentRoundedIcon sx={{ fontSize: 16, color: "#D97706" }} />
-    },
-    {
-        key: "activePatients",
-        label: "Active Treatments",
-        value: "31",
-        delta: "5 new this week",
-        up: true,
-        iconBg: alpha("#7C3AED", 0.1),
-        icon: <HealingRoundedIcon sx={{ fontSize: 16, color: "#7C3AED" }} />
-    },
+    // {
+    //     key: "pendingInvoices",
+    //     label: "Pending Invoices",
+    //     value: "7",
+    //     delta: "2 overdue",
+    //     up: false,
+    //     iconBg: alpha("#D97706", 0.1),
+    //     icon: <AssignmentRoundedIcon sx={{ fontSize: 16, color: "#D97706" }} />
+    // },
+    // {
+    //     key: "activePatients",
+    //     label: "Active Treatments",
+    //     value: "31",
+    //     delta: "5 new this week",
+    //     up: true,
+    //     iconBg: alpha("#7C3AED", 0.1),
+    //     icon: <HealingRoundedIcon sx={{ fontSize: 16, color: "#7C3AED" }} />
+    // },
 
 ];
 
@@ -148,7 +149,7 @@ function Dashboard() {
 
                     <Box sx={{ flex: 1, overflowY: "auto", p: 2.5 }}>
 
-                        <div className="grid grid-cols-4 gap-3 mb-4">
+                        {/* <div className="grid grid-cols-4 gap-3 mb-4">
                             {METRIC_DATA.map((data) => {
                                 return (
                                     <MetricCard
@@ -162,23 +163,27 @@ function Dashboard() {
                                     />
                                 );
                             })}
-                        </div>
+                        </div> */}
 
                         {/* ── Row 1: Appointments + Billing ────────────────────────── */}
-                        <div className="grid gap-3 mb-3" style={{ gridTemplateColumns: "1fr 300px" }}>
+                        <div className="grid gap-3 mb-3" style={{ gridTemplateColumns: "1fr 650px" }}>
 
+                            <ReservePatients appointments={APPOINTMENTS} />
+                            
                             <Appointments appointments={APPOINTMENTS} />
 
-                            <BillingSummary billingSummaryData={BILLING_ROWS} />
+                            {/* <Appointments appointments={APPOINTMENTS} /> */}
 
-                            {/* <RecentPatients recentPatientsData={PATIENTS}/> */}
+                            {/* <BillingSummary billingSummaryData={BILLING_ROWS} /> */}
+
                         </div>
 
                         {/* ── Row 2: Chart + Recent Patients ───────────────────────── */}
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid  gap-3">
 
+                            
 
-                            <Paper elevation={0} sx={{ border: "1px solid #F3F4F6", borderRadius: 3 }}>
+                            {/* <Paper elevation={0} sx={{ border: "1px solid #F3F4F6", borderRadius: 3 }}>
                                 <Stack direction="row" justifyContent="space-between" alignItems="center"
                                     px={2} py={1.5} sx={{ borderBottom: "1px solid #F9FAFB" }}>
                                     <Typography sx={{ fontSize: "0.875rem", fontWeight: 600 }}>Appointments this week</Typography>
@@ -187,10 +192,9 @@ function Dashboard() {
                                     </Typography>
                                 </Stack>
                                 <WeeklyBarChart />
-                            </Paper>
+                            </Paper> */}
 
 
-                            <RecentPatients recentPatientsData={PATIENTS}/>
                         </div>
 
                     </Box>

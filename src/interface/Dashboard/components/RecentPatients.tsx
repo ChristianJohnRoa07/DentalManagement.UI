@@ -8,8 +8,8 @@ import {
     Paper
 } from "@mui/material";
 
-import { type RecentPatientProps } from "../../common/interface";
-import { PATIENT_AVATAR, STATUS_CHIP } from "../../common/constants"
+import { type RecentPatientProps } from "../../../common/interface";
+import { PATIENT_AVATAR, STATUS_CHIP } from "../../../common/constants"
 
 function RecentPatients({recentPatientsData}:RecentPatientProps) {
     return (
