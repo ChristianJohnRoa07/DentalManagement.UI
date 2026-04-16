@@ -1,5 +1,16 @@
 
 import { createTheme } from "@mui/material/styles";
+import { type TreatmentType } from "../common/types"
+import { type TreatmentColors } from "../common/interface"
+
+export const AVATAR_COLOR: Record<TreatmentType, TreatmentColors> = {
+    Cleaning: { bgcolor: "#DCFCE7", color: "#166534" },
+    "X-Ray": { bgcolor: "#DBEAFE", color: "#1E40AF" },
+    Filling: { bgcolor: "#FEF3C7", color: "#92400E" },
+    Consult: { bgcolor: "#EDE9FE", color: "#4C1D95" },
+    Ortho: { bgcolor: "#FCE7F3", color: "#831843" },
+    Extraction: { bgcolor: "#FEE2E2", color: "#7F1D1D" },
+};
 
 export const theme = createTheme({
   palette: {
@@ -10,6 +21,7 @@ export const theme = createTheme({
     error:      { main: "#DC2626" },
     background: { default: "#F7F8FA", paper: "#FFFFFF" },
     text:       { primary: "#111827", secondary: "#6B7280" },
+    treatmentTypes: AVATAR_COLOR,
   },
   typography: {
     fontFamily: "'DM Sans', sans-serif",
