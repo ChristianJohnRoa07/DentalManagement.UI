@@ -45,7 +45,7 @@ function ReservePatients({ appointments }: AppointmentProps) {
                             <Avatar sx={{
                                 width: 28, height: 28, fontSize: "0.65rem", fontWeight: 600,
                                 bgcolor: treatmentColor.bgcolor,
-                                color: treatmentColor.color
+                                color: treatmentColor.textColor
                             }}>
                                 {appt.initials}
                             </Avatar>
