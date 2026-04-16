@@ -5,6 +5,8 @@ import {
     Stack,
     Tooltip,
     Typography,
+    TextField,
+    InputAdornment
 } from "@mui/material";
 
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
@@ -27,13 +29,29 @@ function TopBar() {
             </Box>
             <Stack direction="row" gap={1}>
                 <Tooltip title="Search patients or records">
-                    <Button variant="outlined" size="small" startIcon={<SearchRoundedIcon />}
+                    <TextField
+                        placeholder="Search..."
+                        size="small"
                         sx={{
-                            borderColor: "grey.200", color: "text.secondary", fontSize: "0.75rem",
-                            "&:hover": { borderColor: "grey.400", bgcolor: "grey.50" }
-                        }}>
-                        Search
-                    </Button>
+                            width: 320, // Adjust this number to make it as long as you need
+                            "& .MuiOutlinedInput-root": {
+                                borderRadius: 2,
+                                fontSize: "0.85rem",
+                                bgcolor: "white",
+                                "& fieldset": { borderColor: "grey.200" },
+                                "&:hover fieldset": { borderColor: "grey.300" },
+                            },
+                        }}
+                        slotProps={{
+                            input: {
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <SearchRoundedIcon sx={{ fontSize: "1.1rem", color: "text.secondary" }} />
+                                    </InputAdornment>
+                                ),
+                            },
+                        }}
+                    />
                 </Tooltip>
                 <Button variant="contained" size="small" disableElevation
                     startIcon={<AddRoundedIcon />}
