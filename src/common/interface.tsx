@@ -12,7 +12,7 @@ declare module '@mui/material/styles' {
 
 export interface TreatmentColors {
   bgcolor: string;
-  color: string;
+  textColor: string;
 }
 
 export interface Appointment {
